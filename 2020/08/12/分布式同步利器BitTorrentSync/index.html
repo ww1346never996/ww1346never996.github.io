@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="BT Sync，不只是同步工具预先告知，该工具正常使用途径已被you know what封杀，但是仍旧可以使用，该教程旨在教授一些该工具的初步使用方法，请勿用于传播非法内容！若因个人使用导致的任何责任，本人概不承担。 简单介绍相信玩网老司机一定都听说过BT下载吧。BT是一种互联网的P2P传输协议，全名”BitTorrent”。BT Sync 与BT下载一样，同为BItTorrent公司的产品。故B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式同步利器BitTorrentSync">
+<meta property="og:url" content="http://yoursite.com/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/index.html">
+<meta property="og:site_name" content="WW1346的个人博客">
+<meta property="og:description" content="BT Sync，不只是同步工具预先告知，该工具正常使用途径已被you know what封杀，但是仍旧可以使用，该教程旨在教授一些该工具的初步使用方法，请勿用于传播非法内容！若因个人使用导致的任何责任，本人概不承担。 简单介绍相信玩网老司机一定都听说过BT下载吧。BT是一种互联网的P2P传输协议，全名”BitTorrent”。BT Sync 与BT下载一样，同为BItTorrent公司的产品。故B">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015334725.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015353063.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015637675.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015712081.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015738460.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812021345152.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812021400827.png">
+<meta property="article:published_time" content="2020-08-11T17:03:36.000Z">
+<meta property="article:modified_time" content="2020-08-11T18:26:59.300Z">
+<meta property="article:author" content="WW1346">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015334725.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>分布式同步利器BitTorrentSync | WW1346的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">WW1346的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录、分享、思考</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="name" content="WW1346">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WW1346的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分布式同步利器BitTorrentSync
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-12 01:03:36 / 修改时间：02:26:59" itemprop="dateCreated datePublished" datetime="2020-08-12T01:03:36+08:00">2020-08-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="BT-Sync，不只是同步工具"><a href="#BT-Sync，不只是同步工具" class="headerlink" title="BT Sync，不只是同步工具"></a>BT Sync，不只是同步工具</h1><p>预先告知，该工具正常使用途径已被<strong>you know what</strong>封杀，但是仍旧可以使用，该教程旨在教授一些该工具的初步使用方法，请勿用于传播非法内容！若因个人使用导致的任何责任，本人概不承担。</p>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>相信玩网老司机一定都听说过<strong>BT下载</strong>吧。BT是一种互联网的P2P传输协议，全名”BitTorrent”。BT Sync 与BT下载一样，同为BItTorrent公司的产品。故BT Sync 也是通过P2P传输的。</p>
+<p>BT Sync 主要是作为同步工具来使用的，它能够让你快速的在几个不同的设备直接同步文件。具有增量同步的功能。</p>
+<p>由于是P2P的传输方式，我们无需服务器，无需公网ip即可进行同步，只要我们在中心服务器找到节点接入网络，就可以一直享受庞大的资源树。</p>
+<p>插播一句个人观点：<strong>BT这种方式真的是互联网精神的典范：人人为我，我为人人。可惜的是随着互联网公司的发展，这一点已经给大型商业公司碾进了互联网的角落了。</strong></p>
+<p>那么它何以做网盘呢？答案也是P2P。</p>
+<p>每个人都是服务器，这就是BT的精神。利用BT Sync，享有私钥的用户可以从节点网络中正在运行的用户那里读取数据，这让其脱离了传统网盘的几个桎梏：</p>
+<ol>
+<li>存储空间限制</li>
+<li>下载流量限制    <strong>这也是百度网盘广为诟病的一点</strong></li>
+<li>网络审查及版权问题</li>
+<li>服务费用</li>
+</ol>
+<h2 id="BT-Sync的下载及安装"><a href="#BT-Sync的下载及安装" class="headerlink" title="BT Sync的下载及安装"></a>BT Sync的下载及安装</h2><p>当然，<a target="_blank" rel="noopener" href="https://www.resilio.com/">官网下载</a>肯定是最优选，但是毕竟BIttorrent是家商业公司，新的BT Sync<strong>现在叫Resilio Sync</strong>的部分功能是收费滴！所以既然要发扬互联网精神，<strong>白嫖</strong>肯定是少不了的对吧！这里我放一个链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1xik7Own99Av1xEqOyBeMPg">提取码4g0n解压码btsync</a></p>
+<p>这是老版本的BT Sync，一样能使，而且有对咱们国内用户<strong>至关重要的一项功能</strong>，具体是啥，容我卖个关子。</p>
+<p>安装嘛，没啥好讲的，运行安装程序就完事了。</p>
+<h2 id="BT-Sync的使用"><a href="#BT-Sync的使用" class="headerlink" title="BT Sync的使用"></a>BT Sync的使用</h2><p>这里就是重点中的重点了！使用这个小玩意只需要简单的三步</p>
+<h3 id="找一个文件夹"><a href="#找一个文件夹" class="headerlink" title="找一个文件夹"></a>找一个文件夹</h3><p>这没啥好讲的，开个属于它的文件夹就行，路径最好别带中文。</p>
+<h3 id="接受同步密钥"><a href="#接受同步密钥" class="headerlink" title="接受同步密钥"></a>接受同步密钥</h3><p>BT Sync最重要的就是同步密钥。分为<strong>读写密钥</strong>和<strong>只读密钥</strong>。顾名思义，读写密钥的持有者拥有读写的权限，能够更新目录中的内容，拥有只读密钥的人无法对同步目录修改，只能读取。<strong>你是可以改里面的东西的，但是这个改动不会传给别的用户</strong>。</p>
+<p>1.4版本里右侧有一个设置按钮</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015334725.png" alt="image-20200812015334725"></p>
+<p>点击输入密钥</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015353063.png" alt="image-20200812015353063"></p>
+<p>把你的接受密钥丢进去，选择你的文件夹，完成。</p>
+<h3 id="发起同步"><a href="#发起同步" class="headerlink" title="发起同步"></a>发起同步</h3><p>要发起同步，你需要一个用来同步的文件夹<strong>废话</strong>，你对该文件夹的改动会同步给拥有密钥的人。</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015637675.png" alt="image-20200812015637675"></p>
+<p>点击这个，选择你的文件夹</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015712081.png" alt="image-20200812015712081"></p>
+<p>这是一些设置，不多介绍</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015738460.png" alt="image-20200812015738460"></p>
+<p>在这个三个小点这里点击，可以修改偏好和断开连接<strong>不会删除文件夹，只会断开与网络的连接</strong></p>
+<p>以上就是基本的使用教学。</p>
+<h2 id="如何科学使用"><a href="#如何科学使用" class="headerlink" title="如何科学使用"></a>如何科学使用</h2><p>以上说了那么多，你可能也开始了使用。然而，由于<strong>you know what</strong>的封杀，我们无法正常的访问节点网络，也就是说，刚刚搞了半天，最后我们却无法正常使用！这时候，我们就要收回之前卖的那个关子了，祭出我们的杀器——DHT网络。</p>
+<h3 id="BT-Sync的节点发现"><a href="#BT-Sync的节点发现" class="headerlink" title="BT Sync的节点发现"></a>BT Sync的节点发现</h3><p>对于任何一个P2P工具，节点发现都是开始运作的第一步。BT Sync实现节点发现，主要有两个途径。</p>
+<h3 id="Tracker-server"><a href="#Tracker-server" class="headerlink" title="Tracker server"></a>Tracker server</h3><p>追踪服务器（Tracker server）就是节点之间的中介，通过连接该服务，节点之间可以互相发现，获取信息。而正是因为这个服务被封了，导致我们的BT Sync无法正常使用。</p>
+<h3 id="DHT网络"><a href="#DHT网络" class="headerlink" title="DHT网络"></a>DHT网络</h3><p>分布式是个啥玩意？三言两语肯定讲不清。所以DHT想讲清楚，肯定不是我这个普及用法的博客的工作。我们大概可以这样描述：有一张网络，上面的每个节点都有这张网络的蓝图，你想要加入这张网络，只需要找到一个在网络中的节点，告诉他你要进来了，这样就能顺藤摸瓜找到整张网络，并加入他们。这个找到第一个节点的过程叫：<strong>bootstrap</strong>。这一步就是利用DHT网络的关键。</p>
+<h3 id="如何在国内进行节点发现"><a href="#如何在国内进行节点发现" class="headerlink" title="如何在国内进行节点发现"></a>如何在国内进行节点发现</h3><p>由于我们无法访问Tracker server，而且又不可能有好心人告诉你他也在网络里，并且告诉你怎么连进来。所以<strong>科学上网</strong>还是免不了的。我们先挂上代理，等待第一次的同步。当客户端界面出现了若干节点数，且已经开始同步，设置DHT网络：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812021345152.png" alt="image-20200812021345152"></p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812021400827.png" alt="image-20200812021400827"></p>
+<p><strong>如果有局域网同步需求，需勾选搜索LAN</strong></p>
+<p>至此，你应该已经连接进了DHT网络，如果想要测试是否能够免翻使用，请去除勾选中继服务器及跟踪程序服务器。<strong>关闭科学上网</strong>，重启BT Sync看看节点列表是否还有节点，能否正常同步。若能够正常使用，今后就能免翻一直使用啦！</p>
+<h3 id="关于DHT的注意事项"><a href="#关于DHT的注意事项" class="headerlink" title="关于DHT的注意事项"></a>关于DHT的注意事项</h3><p>保证经常运行BT Sync，这样才能更上DHT的同步。如果较长时间未使用导致同步失败，就再次按照上面的方法发现节点就行了。</p>
+<h2 id="最后想说的几句话"><a href="#最后想说的几句话" class="headerlink" title="最后想说的几句话"></a>最后想说的几句话</h2><p>BT Sync是一个非常好用的工具，因此本人才会专门写一个博客进行一些初步的指导，但本人绝不赞成用其分享敏感内容、侵犯版权的内容等。如有人通过阅读本人的博客学会使用BT Sync并用其分享不适宜的内容，造成的法律后果本人概不负责。工具无罪，希望大家善用。</p>
+<p>提供一个BTSync中文发布站：<a target="_blank" rel="noopener" href="http://btsync.org/">BTSync中文发布站</a> 请勿滥用</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/12/%E5%8D%9A%E5%AE%A2%E6%9A%96%E6%9A%96%E4%BB%8E%E6%8D%A2%E4%B8%BB%E9%A2%98%E5%BC%80%E5%A7%8B/" rel="prev" title="博客暖暖从换主题开始">
+      <i class="fa fa-chevron-left"></i> 博客暖暖从换主题开始
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/" rel="next" title="背景、头像、侧边栏设置">
+      背景、头像、侧边栏设置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BT-Sync%EF%BC%8C%E4%B8%8D%E5%8F%AA%E6%98%AF%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">BT Sync，不只是同步工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BT-Sync%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">BT Sync的下载及安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BT-Sync%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">BT Sync的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%BE%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.3.1.</span> <span class="nav-text">找一个文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%97%E5%90%8C%E6%AD%A5%E5%AF%86%E9%92%A5"><span class="nav-number">1.3.2.</span> <span class="nav-text">接受同步密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E8%B5%B7%E5%90%8C%E6%AD%A5"><span class="nav-number">1.3.3.</span> <span class="nav-text">发起同步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A7%91%E5%AD%A6%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">如何科学使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BT-Sync%E7%9A%84%E8%8A%82%E7%82%B9%E5%8F%91%E7%8E%B0"><span class="nav-number">1.4.1.</span> <span class="nav-text">BT Sync的节点发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tracker-server"><span class="nav-number">1.4.2.</span> <span class="nav-text">Tracker server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHT%E7%BD%91%E7%BB%9C"><span class="nav-number">1.4.3.</span> <span class="nav-text">DHT网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E5%9B%BD%E5%86%85%E8%BF%9B%E8%A1%8C%E8%8A%82%E7%82%B9%E5%8F%91%E7%8E%B0"><span class="nav-number">1.4.4.</span> <span class="nav-text">如何在国内进行节点发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EDHT%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.4.5.</span> <span class="nav-text">关于DHT的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E6%83%B3%E8%AF%B4%E7%9A%84%E5%87%A0%E5%8F%A5%E8%AF%9D"><span class="nav-number">1.5.</span> <span class="nav-text">最后想说的几句话</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="WW1346"
+      src="/images/avatar_1.jpg">
+  <p class="site-author-name" itemprop="name">WW1346</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WW1346</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
