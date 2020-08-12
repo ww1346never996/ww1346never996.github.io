@@ -22,15 +22,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="用A Player在网页播放音乐首先，如果有兴趣，请看官方中文文档：a player 任何时候有问题研究官方文档都是优选，实在不行或者懒得看懒得研究再去搜索教程。 那么，如果你只是想把音乐播放器插进博客，随便弄个背景音乐，请参照下面的文章。 安装使用npm可以直接安装： 1npm install aplayer --save  我使用的是另外一种方法，在GitHub上找到这个项目：APlayer">
+<meta property="og:type" content="article">
 <meta property="og:title" content="音乐Party之插件APlayer">
 <meta property="og:url" content="http://yoursite.com/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/index.html">
 <meta property="og:site_name" content="WW1346的个人博客">
+<meta property="og:description" content="用A Player在网页播放音乐首先，如果有兴趣，请看官方中文文档：a player 任何时候有问题研究官方文档都是优选，实在不行或者懒得看懒得研究再去搜索教程。 那么，如果你只是想把音乐播放器插进博客，随便弄个背景音乐，请参照下面的文章。 安装使用npm可以直接安装： 1npm install aplayer --save  我使用的是另外一种方法，在GitHub上找到这个项目：APlayer">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145422675.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145459899.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812150312712.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812150713305.png">
 <meta property="article:published_time" content="2020-08-11T17:05:28.000Z">
-<meta property="article:modified_time" content="2020-08-11T17:06:07.049Z">
+<meta property="article:modified_time" content="2020-08-12T07:13:38.078Z">
 <meta property="article:author" content="WW1346">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145422675.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/">
 
@@ -180,7 +187,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-12 01:05:28 / 修改时间：01:06:07" itemprop="dateCreated datePublished" datetime="2020-08-12T01:05:28+08:00">2020-08-12</time>
+              <time title="创建时间：2020-08-12 01:05:28 / 修改时间：15:13:38" itemprop="dateCreated datePublished" datetime="2020-08-12T01:05:28+08:00">2020-08-12</time>
             </span>
 
           
@@ -215,7 +222,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="用A-Player在网页播放音乐"><a href="#用A-Player在网页播放音乐" class="headerlink" title="用A Player在网页播放音乐"></a>用A Player在网页播放音乐</h1><p>首先，如果有兴趣，请看官方中文文档：<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">a player</a></p>
+<p>任何时候有问题研究官方文档都是优选，实在不行或者懒得看懒得研究再去搜索教程。</p>
+<p>那么，如果你只是想把音乐播放器插进博客，随便弄个背景音乐，请参照下面的文章。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用npm可以直接安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install aplayer --save</span><br></pre></td></tr></table></figure>
+
+<p>我使用的是另外一种方法，在GitHub上找到这个项目：<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">APlayer</a></p>
+<p>打包下载下来：<img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145422675.png" alt="image-20200812145422675"></p>
+<p>解压里面的dist文件夹到主题的source文件夹中</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145459899.png" alt="image-20200812145459899"></p>
+<p>就算是安装完成了。</p>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><p>我采取的是比较笨的办法，APlayer本身支持用js调用的，我自己弄了一个全局调用的文件music.js</p>
+<p>具体的方法如下，在dist文件夹中新建music.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const ap &#x3D; new APlayer(&#123;</span><br><span class="line">    container: document.getElementById(&#39;aplayer&#39;),</span><br><span class="line">    fixed: true,</span><br><span class="line">    autoplay: true,</span><br><span class="line">    audio: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: &#39;Gravity&#39;,</span><br><span class="line">        artist: &#39;Novelist FR&#39;,</span><br><span class="line">        url: &#39;https:&#x2F;&#x2F;music.163.com&#x2F;song&#x2F;media&#x2F;outer&#x2F;url?id&#x3D;1458474926.mp3&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面的name是歌曲名字 artist是歌手 url是歌曲链接<strong>下面会教你如何从网<del>抑</del>易云里获得</strong></p>
+<p>可以添加多首歌曲，用<code>&#123;&#125;</code>包住歌曲信息就行。</p>
+<p>还支持添加封面图和歌词，请查阅官方文档。</p>
+<h2 id="网易云获得歌曲链接"><a href="#网易云获得歌曲链接" class="headerlink" title="网易云获得歌曲链接"></a>网易云获得歌曲链接</h2><p>网易云打开一首歌，获得基础的url：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812150312712.png" alt="image-20200812150312712"></p>
+<p>对应的歌曲链接就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;music.163.com&#x2F;song&#x2F;media&#x2F;outer&#x2F;url?id&#x3D;(这里是上面的id).mp3</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置到全局"><a href="#配置到全局" class="headerlink" title="配置到全局"></a>配置到全局</h2><p>找到路径blog/themes/next/layout里的_layout.swig，在body里添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;dist&#x2F;APlayer.min.css&quot;&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;aplayer&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;dist&#x2F;APlayer.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;dist&#x2F;music.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812150713305.png" alt="image-20200812150713305"></p>
+<p>部署，完成。</p>
+<h2 id="最后是一个小工具"><a href="#最后是一个小工具" class="headerlink" title="最后是一个小工具"></a>最后是一个小工具</h2><p>手动填信息有够不方便。没关系，我们可以通过程序解决。晚点我会完成一个<strong>小爬虫</strong>，负责爬取歌单信息为支持的格式！敬请期待。</p>
+
     </div>
 
     
@@ -230,8 +267,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/" rel="prev" title="背景、头像、侧边栏设置">
-      <i class="fa fa-chevron-left"></i> 背景、头像、侧边栏设置
+    <a href="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/" rel="prev" title="背景、头像、侧边栏等的设置">
+      <i class="fa fa-chevron-left"></i> 背景、头像、侧边栏等的设置
     </a></div>
       <div class="post-nav-item">
     <a href="/2020/08/12/%E6%9D%A5%E4%B8%AA%E7%81%8C%E6%B0%B4%E5%8C%BA%E8%AF%95%E8%AF%95%E5%91%97/" rel="next" title="来个灌水区试试呗">
@@ -296,6 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8A-Player%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90"><span class="nav-number">1.</span> <span class="nav-text">用A Player在网页播放音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E8%8E%B7%E5%BE%97%E6%AD%8C%E6%9B%B2%E9%93%BE%E6%8E%A5"><span class="nav-number">1.3.</span> <span class="nav-text">网易云获得歌曲链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%88%B0%E5%85%A8%E5%B1%80"><span class="nav-number">1.4.</span> <span class="nav-text">配置到全局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E6%98%AF%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">最后是一个小工具</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
