@@ -22,15 +22,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="利用nexT自带的Valine搭建评论区应某人的强烈互动要求，还是先把评论功能给做了。这次的评论区搭建非常的简单，使用的是nexT主题自带的Valine评论区。接下来就介绍一下如何搭建，不知道怎么启用nexT主题的可以去看博客暖暖从换主题开始！这篇文章。 注册和启用learncloudValine是无后端的，评论数据管理利用的是learncloud。因此我们需要注册一个账户：点此进入注册界面 然后">
+<meta property="og:type" content="article">
 <meta property="og:title" content="来个灌水区试试呗">
 <meta property="og:url" content="http://yoursite.com/2020/08/12/%E6%9D%A5%E4%B8%AA%E7%81%8C%E6%B0%B4%E5%8C%BA%E8%AF%95%E8%AF%95%E5%91%97/index.html">
 <meta property="og:site_name" content="WW1346的个人博客">
+<meta property="og:description" content="利用nexT自带的Valine搭建评论区应某人的强烈互动要求，还是先把评论功能给做了。这次的评论区搭建非常的简单，使用的是nexT主题自带的Valine评论区。接下来就介绍一下如何搭建，不知道怎么启用nexT主题的可以去看博客暖暖从换主题开始！这篇文章。 注册和启用learncloudValine是无后端的，评论数据管理利用的是learncloud。因此我们需要注册一个账户：点此进入注册界面 然后">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812105010707.png">
+<meta property="og:image" content="https://tva2.sinaimg.com/large/006qRazegy1fibactm2csj30x80f2dhn.jpg">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812110430366.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812110137267.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812110242475.png">
 <meta property="article:published_time" content="2020-08-11T18:28:43.000Z">
-<meta property="article:modified_time" content="2020-08-11T18:29:00.574Z">
+<meta property="article:modified_time" content="2020-08-12T03:06:38.043Z">
 <meta property="article:author" content="WW1346">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812105010707.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/08/12/%E6%9D%A5%E4%B8%AA%E7%81%8C%E6%B0%B4%E5%8C%BA%E8%AF%95%E8%AF%95%E5%91%97/">
 
@@ -180,7 +188,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-12 02:28:43 / 修改时间：02:29:00" itemprop="dateCreated datePublished" datetime="2020-08-12T02:28:43+08:00">2020-08-12</time>
+              <time title="创建时间：2020-08-12 02:28:43 / 修改时间：11:06:38" itemprop="dateCreated datePublished" datetime="2020-08-12T02:28:43+08:00">2020-08-12</time>
             </span>
 
           
@@ -215,7 +223,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="利用nexT自带的Valine搭建评论区"><a href="#利用nexT自带的Valine搭建评论区" class="headerlink" title="利用nexT自带的Valine搭建评论区"></a>利用nexT自带的Valine搭建评论区</h1><p>应某人的强烈互动要求，还是先把评论功能给做了。这次的评论区搭建非常的简单，使用的是nexT主题自带的Valine评论区。接下来就介绍一下如何搭建，不知道怎么启用nexT主题的可以去看<a target="_blank" rel="noopener" href="https://ww1346never996.github.io/2020/08/12/%E5%8D%9A%E5%AE%A2%E6%9A%96%E6%9A%96%E4%BB%8E%E6%8D%A2%E4%B8%BB%E9%A2%98%E5%BC%80%E5%A7%8B/">博客暖暖从换主题开始！</a>这篇文章。</p>
+<h2 id="注册和启用learncloud"><a href="#注册和启用learncloud" class="headerlink" title="注册和启用learncloud"></a>注册和启用learncloud</h2><p>Valine是无后端的，评论数据管理利用的是learncloud。因此我们需要注册一个账户：<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup">点此进入注册界面</a></p>
+<p>然后是些实名啥的，搞定以后会进入一个创建应用的界面：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812105010707.png" alt="image-20200812105010707"></p>
+<p>这里名字随便取就行。</p>
+<p>创建好点击左侧设置，选择应用Key<img src="https://tva2.sinaimg.com/large/006qRazegy1fibactm2csj30x80f2dhn.jpg" alt="img"></p>
+<p>设置learncloud的安全域名为自己的博客域名</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812110430366.png" alt="image-20200812110430366"></p>
+<h2 id="配置Valine"><a href="#配置Valine" class="headerlink" title="配置Valine"></a>配置Valine</h2><p>然后进入主题里的_config.yml文件</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812110137267.png" alt="image-20200812110137267"></p>
+<p>在Valine这一项里设置</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812110242475.png" alt="image-20200812110242475"></p>
+<p>appid和appkey都是对应的应用key里的。</p>
+<p>设置完毕后即可部署到博客里了。</p>
+
     </div>
 
     
@@ -296,6 +318,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A9%E7%94%A8nexT%E8%87%AA%E5%B8%A6%E7%9A%84Valine%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E5%8C%BA"><span class="nav-number">1.</span> <span class="nav-text">利用nexT自带的Valine搭建评论区</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E5%92%8C%E5%90%AF%E7%94%A8learncloud"><span class="nav-number">1.1.</span> <span class="nav-text">注册和启用learncloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEValine"><span class="nav-number">1.2.</span> <span class="nav-text">配置Valine</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -311,7 +334,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
