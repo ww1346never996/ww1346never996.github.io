@@ -153,6 +153,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/11/HexoKit%E8%A7%A3%E5%86%B3init%20clone%E8%BF%87%E6%85%A2%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="name" content="WW1346">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WW1346的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/11/HexoKit%E8%A7%A3%E5%86%B3init%20clone%E8%BF%87%E6%85%A2%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">HexoKit解决init clone过慢问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-11 15:52:05 / 修改时间：17:03:10" itemprop="dateCreated datePublished" datetime="2020-08-11T15:52:05+08:00">2020-08-11</time>
+            </span>
+
+          
+            <span id="/2020/08/11/HexoKit%E8%A7%A3%E5%86%B3init%20clone%E8%BF%87%E6%85%A2%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="HexoKit解决init clone过慢问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/11/HexoKit%E8%A7%A3%E5%86%B3init%20clone%E8%BF%87%E6%85%A2%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/11/HexoKit%E8%A7%A3%E5%86%B3init%20clone%E8%BF%87%E6%85%A2%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HexoKit，永远的神！"><a href="#HexoKit，永远的神！" class="headerlink" title="HexoKit，永远的神！"></a>HexoKit，永远的神！</h1><p>唉，有时候真心觉得知乎的程序员是否都早就是<strong>太君</strong>了，各个发的教程根本不提国内码农最大的敌人——<strong>GFW</strong>。昨晚看着知乎的三分钟搭建个人博客的教程，结果前面的都挺顺利，唯独卡在了hexo的初始创建上！试个十次八次才有一次能够开始clone，结果clone到一半都没有就卡住了。<strong>换源</strong>、<strong>挂梯</strong>各种都无果。最后只好接着求助码农的好朋友——<strong>搜索引擎</strong>。然后就发现了一个dalao开发的工具——<strong>HexoKit</strong></p>
+<h2 id="HexoKit的安装"><a href="#HexoKit的安装" class="headerlink" title="HexoKit的安装"></a>HexoKit的安装</h2><p>废话不多说，先搬dalao的<a target="_blank" rel="noopener" href="https://blog.nfz.moe/archives/hexokit-intro.html">博文</a>出来。<em>加载有点慢，可以挂梯访问</em></p>
+<p>如果不想看原作者文章，那就让我来当二道贩子。</p>
+<h3 id="进入要安装Hexo的目录"><a href="#进入要安装Hexo的目录" class="headerlink" title="进入要安装Hexo的目录"></a>进入要安装Hexo的目录</h3><p>这一步不用多讲吧，找个地方给你的博客当仓库。<em>路径最好别带中文</em></p>
+<h3 id="执行安装脚本"><a href="#执行安装脚本" class="headerlink" title="执行安装脚本"></a>执行安装脚本</h3><p> 如果你已经装了Git和NodeJS，那么再安装的目录下右键<code>Git Bash Here</code>，然后执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http:&#x2F;&#x2F;git.oschina.net&#x2F;neoFelhz&#x2F;hexokit&#x2F;raw&#x2F;master&#x2F;install.sh | sh</span><br></pre></td></tr></table></figure>
+
+<p>然后等待完成即可。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于这个项目开发者应该是已经不再维护了，所以你会下载到<strong>3年前的版本</strong>….无所谓啦，<strong>能用</strong>就行</p>
+<p>如果尚未完成Git和NodeJS的安装…..那就请去看我的这篇文章：<a target="_blank" rel="noopener" href="https://ww1346never996.github.io/2020/08/11/%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehexo%E5%8F%8AGitHub%20pages%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">搭建基于hexo及GitHub pages的个人博客</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/11/%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Ehexo%E5%8F%8AGitHub%20pages%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -507,7 +596,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
