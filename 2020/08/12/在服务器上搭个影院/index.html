@@ -22,15 +22,26 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="利用云服务器和Jellyfin搭建私人影院想要一个自己的私人影院，并且像各种视频网站一样随时随地点播？想要利用手里的片源在不同的设备上同步播放，和朋友一起佳片有约？赶快来尝试一下利用Jellyfin来搭建自己的在线播放服务吧。前提说明，搭jellyfin有很多不同的方式，我尝试两种不同的办法，并且会在下文中衡量他们各自的利弊。 本地跑Jellyfin，内网穿透实现外网访问一般来说，普通人手里的服务">
+<meta property="og:type" content="article">
 <meta property="og:title" content="在服务器上搭个影院">
 <meta property="og:url" content="http://yoursite.com/2020/08/12/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E4%B8%AA%E5%BD%B1%E9%99%A2/index.html">
 <meta property="og:site_name" content="WW1346的个人博客">
+<meta property="og:description" content="利用云服务器和Jellyfin搭建私人影院想要一个自己的私人影院，并且像各种视频网站一样随时随地点播？想要利用手里的片源在不同的设备上同步播放，和朋友一起佳片有约？赶快来尝试一下利用Jellyfin来搭建自己的在线播放服务吧。前提说明，搭jellyfin有很多不同的方式，我尝试两种不同的办法，并且会在下文中衡量他们各自的利弊。 本地跑Jellyfin，内网穿透实现外网访问一般来说，普通人手里的服务">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815153948616.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815154251158.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815154620097.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815154857237.png">
+<meta property="og:image" content="https://www.ilt.me/content/uploadfile/202007/0fe81593611962.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815160532762.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815161733841.png">
+<meta property="og:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815161638453.png">
 <meta property="article:published_time" content="2020-08-12T02:47:56.000Z">
-<meta property="article:modified_time" content="2020-08-12T02:48:12.221Z">
+<meta property="article:modified_time" content="2020-08-15T13:52:00.705Z">
 <meta property="article:author" content="WW1346">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815153948616.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/08/12/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E4%B8%AA%E5%BD%B1%E9%99%A2/">
 
@@ -178,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-12 10:47:56 / 修改时间：10:48:12" itemprop="dateCreated datePublished" datetime="2020-08-12T10:47:56+08:00">2020-08-12</time>
+              <time title="创建时间：2020-08-12 10:47:56" itemprop="dateCreated datePublished" datetime="2020-08-12T10:47:56+08:00">2020-08-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-15 21:52:00" itemprop="dateModified" datetime="2020-08-15T21:52:00+08:00">2020-08-15</time>
+              </span>
 
           
             <span id="/2020/08/12/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E4%B8%AA%E5%BD%B1%E9%99%A2/" class="post-meta-item leancloud_visitors" data-flag-title="在服务器上搭个影院" title="阅读次数">
@@ -215,7 +232,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="利用云服务器和Jellyfin搭建私人影院"><a href="#利用云服务器和Jellyfin搭建私人影院" class="headerlink" title="利用云服务器和Jellyfin搭建私人影院"></a>利用云服务器和Jellyfin搭建私人影院</h1><p>想要一个自己的私人影院，并且像各种视频网站一样随时随地点播？想要利用手里的片源在不同的设备上同步播放，和朋友一起佳片有约？赶快来尝试一下利用Jellyfin来搭建自己的在线播放服务吧。前提说明，搭jellyfin有很多不同的方式，我尝试两种不同的办法，并且会在下文中衡量他们各自的利弊。</p>
+<h2 id="本地跑Jellyfin，内网穿透实现外网访问"><a href="#本地跑Jellyfin，内网穿透实现外网访问" class="headerlink" title="本地跑Jellyfin，内网穿透实现外网访问"></a>本地跑Jellyfin，内网穿透实现外网访问</h2><p>一般来说，普通人手里的服务器都是小鸡，配置不高，存储容量也远远不够。而大部分人又没有公网ip，自己电脑当服务器只能实现局域网访问，外网根本访问不了。所以两者一合计，本地跑Jellyfin利用自己的硬盘存储，自己的cpu进行解码，然后通过frp进行内网穿透，利用服务器的ip实现外网的访问。我的配置是本地Windows 10加vultr的vps，系统是Ubuntu 18.04 x64。大家可以按照我的方法配置，不同系统都可以实现。</p>
+<h3 id="本地安装Jellyfin"><a href="#本地安装Jellyfin" class="headerlink" title="本地安装Jellyfin"></a>本地安装Jellyfin</h3><p>去Jellyfin的<a target="_blank" rel="noopener" href="https://jellyfin.org/downloads/">官网</a>下载你本地系统对应的版本。Jellyfin其实大概就算Emby的免费版，操作简单易上手。下载完成后进行安装，然后运行服务。</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815153948616.png" alt="image-20200815153948616"></p>
+<p>右下角菜单栏找到图标，右键open jellyfin，你会进入设置界面，界面可选中文，整体都没啥困难的。</p>
+<p>记住这里服务运行的端口，等会会用得到<img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815154251158.png" alt="image-20200815154251158"></p>
+<h3 id="本地配置frp"><a href="#本地配置frp" class="headerlink" title="本地配置frp"></a>本地配置frp</h3><p>在GitHub上下载frp：<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases/">下载页面</a></p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815154620097.png"></p>
+<p>找到自己的对应版本就行，Linux下配置等会我放在服务器那块讲。</p>
+<p>解压文件，进入文件夹。删除frps相关的文件，然后打开frpc.ini文件编辑。</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815154857237.png" alt="image-20200815154857237"></p>
+<p>server_addr是你的服务器ip，下面的custom_domains也是一样。</p>
+<p>local_port是本地监听的端口，你的jellyfin跑在哪个端口就用哪个端口。</p>
+<p>其余的按照我的配置就行。配置好后保存。</p>
+<h3 id="本地利用nssm挂frp为windows服务"><a href="#本地利用nssm挂frp为windows服务" class="headerlink" title="本地利用nssm挂frp为windows服务"></a>本地利用nssm挂frp为windows服务</h3><p>首先下载nssm：<a href="nssm.cc/download">官网</a></p>
+<p>解压到你的frp文件夹里。打开powershell，执行<code>cmd</code>，执行<code>nssm.exe install frpc</code>。</p>
+<p>然后会弹出如下窗口：</p>
+<p><img src="https://www.ilt.me/content/uploadfile/202007/0fe81593611962.png" alt="2020-05-18_122900.png"></p>
+<p>然后按照上面的设置配置，记得路径选到你的frpc.exe</p>
+<p>下面是几个常用nssm指令，按上面方法进入控制台用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> nssm install servername &#x2F;&#x2F;创建servername服务</span><br><span class="line"></span><br><span class="line">nssm start servername &#x2F;&#x2F;启动服务</span><br><span class="line"></span><br><span class="line">nssm stop servername &#x2F;&#x2F;暂停服务</span><br><span class="line"></span><br><span class="line">nssm restart servername &#x2F;&#x2F;重新启动服务</span><br><span class="line"></span><br><span class="line">nssm remove servername &#x2F;&#x2F;删除创建的servername服务 </span><br></pre></td></tr></table></figure>
+
+<h3 id="服务器配置frp"><a href="#服务器配置frp" class="headerlink" title="服务器配置frp"></a>服务器配置frp</h3><p>Linux下可以使用指令直接下载frp，也可以上传上一步下载的frps相关文件，记得不要frpc的两个文件。</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;releases&#x2F;download&#x2F;v0.33.0&#x2F;frp_0.33.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>解压文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf frp_0.33.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>进入解压出来的文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd frp_0.33.0_linux_amd64&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>删除frpc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -f frpc</span><br><span class="line">rm -f frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>然后如果是自己上传的话就在本地改好frps.ini的内容：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815160532762.png" alt="image-20200815160532762"></p>
+<p>如果是下载的就在Linux上改也行，利用ftp下载下来再改也行。</p>
+<p>运行指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;frps -c .&#x2F;frps.ini</span><br></pre></td></tr></table></figure>
+
+<h4 id="利用screen让frp后台运行"><a href="#利用screen让frp后台运行" class="headerlink" title="利用screen让frp后台运行"></a>利用screen让frp后台运行</h4><p>利用screen指令创建会话：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -dmS frp</span><br></pre></td></tr></table></figure>
+
+<p>进入会话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r frp</span><br></pre></td></tr></table></figure>
+
+<p>使用运行frps的指令，在后面加上&amp;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;frps -c .&#x2F;frps.ini &amp;</span><br></pre></td></tr></table></figure>
+
+<h4 id="利用nohup指令后台运行"><a href="#利用nohup指令后台运行" class="headerlink" title="利用nohup指令后台运行"></a>利用nohup指令后台运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup .&#x2F;frpc -c .&#x2F;frpc.ini &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>都配置完成后就可以直接访问你的服务器ip地址了。当本地服务正常运行时，你可以直接远程播放。播放速度同时受上传带宽和服务器出口带宽限制，所以不能支持太多人同时观看，本人的vultr带两个三个设备同时看还行。自己看可以看1080，挺不错的了</p>
+<h2 id="服务器端跑Jellyfin"><a href="#服务器端跑Jellyfin" class="headerlink" title="服务器端跑Jellyfin"></a>服务器端跑Jellyfin</h2><p>个人不太建议这个方法，给大家看两张图：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815161733841.png" alt="image-20200815161733841"></p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200815161638453.png" alt="image-20200815161638453"></p>
+<p>上面那张是用服务器跑jellyfin手机看转码时候的cpu使用，下面是单纯挂frp的cpu使用。服务器小鸡的cpu处理转码的能力太弱，而基本手机播放的时候都需要进行转码。所以如果你手上的是普通学生机或者低端VPS，基本上就和这个方法无缘了。</p>
+<p>而服务器上跑Jellyfin就非常简单了，安装方法参照之前的本地安装即可。官网也提供了Linux的下载方法，这就不做赘述了。</p>
+<h2 id="其余的高级玩法"><a href="#其余的高级玩法" class="headerlink" title="其余的高级玩法"></a>其余的高级玩法</h2><p>其实吧，我还尝试了不少别的玩法，比如用rclone挂网盘当存储之类的，晚点可以再水一篇。总之就是这样了，能够远程看电脑里的视频**<del>甚至是毛片</del>**真的挺爽的，你不试试吗？</p>
+
     </div>
 
     
@@ -296,6 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8CJellyfin%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%BD%B1%E9%99%A2"><span class="nav-number">1.</span> <span class="nav-text">利用云服务器和Jellyfin搭建私人影院</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%B7%91Jellyfin%EF%BC%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%AE%9E%E7%8E%B0%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="nav-number">1.1.</span> <span class="nav-text">本地跑Jellyfin，内网穿透实现外网访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85Jellyfin"><span class="nav-number">1.1.1.</span> <span class="nav-text">本地安装Jellyfin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AEfrp"><span class="nav-number">1.1.2.</span> <span class="nav-text">本地配置frp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%A9%E7%94%A8nssm%E6%8C%82frp%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地利用nssm挂frp为windows服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AEfrp"><span class="nav-number">1.1.4.</span> <span class="nav-text">服务器配置frp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8screen%E8%AE%A9frp%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">利用screen让frp后台运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8nohup%E6%8C%87%E4%BB%A4%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">利用nohup指令后台运行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%91Jellyfin"><span class="nav-number">1.2.</span> <span class="nav-text">服务器端跑Jellyfin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BD%99%E7%9A%84%E9%AB%98%E7%BA%A7%E7%8E%A9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">其余的高级玩法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -311,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
