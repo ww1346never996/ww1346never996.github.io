@@ -153,6 +153,331 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="name" content="WW1346">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WW1346的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/" class="post-title-link" itemprop="url">音乐Party之插件APlayer</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-12 01:05:28 / 修改时间：15:13:38" itemprop="dateCreated datePublished" datetime="2020-08-12T01:05:28+08:00">2020-08-12</time>
+            </span>
+
+          
+            <span id="/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/" class="post-meta-item leancloud_visitors" data-flag-title="音乐Party之插件APlayer" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="用A-Player在网页播放音乐"><a href="#用A-Player在网页播放音乐" class="headerlink" title="用A Player在网页播放音乐"></a>用A Player在网页播放音乐</h1><p>首先，如果有兴趣，请看官方中文文档：<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">a player</a></p>
+<p>任何时候有问题研究官方文档都是优选，实在不行或者懒得看懒得研究再去搜索教程。</p>
+<p>那么，如果你只是想把音乐播放器插进博客，随便弄个背景音乐，请参照下面的文章。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用npm可以直接安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install aplayer --save</span><br></pre></td></tr></table></figure>
+
+<p>我使用的是另外一种方法，在GitHub上找到这个项目：<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">APlayer</a></p>
+<p>打包下载下来：<img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145422675.png" alt="image-20200812145422675"></p>
+<p>解压里面的dist文件夹到主题的source文件夹中</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812145459899.png" alt="image-20200812145459899"></p>
+<p>就算是安装完成了。</p>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><p>我采取的是比较笨的办法，APlayer本身支持用js调用的，我自己弄了一个全局调用的文件music.js</p>
+<p>具体的方法如下，在dist文件夹中新建music.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const ap &#x3D; new APlayer(&#123;</span><br><span class="line">    container: document.getElementById(&#39;aplayer&#39;),</span><br><span class="line">    fixed: true,</span><br><span class="line">    autoplay: true,</span><br><span class="line">    audio: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: &#39;Gravity&#39;,</span><br><span class="line">        artist: &#39;Novelist FR&#39;,</span><br><span class="line">        url: &#39;https:&#x2F;&#x2F;music.163.com&#x2F;song&#x2F;media&#x2F;outer&#x2F;url?id&#x3D;1458474926.mp3&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面的name是歌曲名字 artist是歌手 url是歌曲链接<strong>下面会教你如何从网<del>抑</del>易云里获得</strong></p>
+<p>可以添加多首歌曲，用<code>&#123;&#125;</code>包住歌曲信息就行。</p>
+<p>还支持添加封面图和歌词，请查阅官方文档。</p>
+<h2 id="网易云获得歌曲链接"><a href="#网易云获得歌曲链接" class="headerlink" title="网易云获得歌曲链接"></a>网易云获得歌曲链接</h2><p>网易云打开一首歌，获得基础的url：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812150312712.png" alt="image-20200812150312712"></p>
+<p>对应的歌曲链接就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;music.163.com&#x2F;song&#x2F;media&#x2F;outer&#x2F;url?id&#x3D;(这里是上面的id).mp3</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置到全局"><a href="#配置到全局" class="headerlink" title="配置到全局"></a>配置到全局</h2><p>找到路径blog/themes/next/layout里的_layout.swig，在body里添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;dist&#x2F;APlayer.min.css&quot;&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;aplayer&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;dist&#x2F;APlayer.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;dist&#x2F;music.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812150713305.png" alt="image-20200812150713305"></p>
+<p>部署，完成。</p>
+<h2 id="最后是一个小工具"><a href="#最后是一个小工具" class="headerlink" title="最后是一个小工具"></a>最后是一个小工具</h2><p>手动填信息有够不方便。没关系，我们可以通过程序解决。晚点我会完成一个<strong>小爬虫</strong>，负责爬取歌单信息为支持的格式！敬请期待。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="name" content="WW1346">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WW1346的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">背景、头像、侧边栏等的设置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-12 01:04:43" itemprop="dateCreated datePublished" datetime="2020-08-12T01:04:43+08:00">2020-08-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 20:38:40" itemprop="dateModified" datetime="2020-09-15T20:38:40+08:00">2020-09-15</time>
+              </span>
+
+          
+            <span id="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="背景、头像、侧边栏等的设置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="设置网站上的杂七杂八的东西"><a href="#设置网站上的杂七杂八的东西" class="headerlink" title="设置网站上的杂七杂八的东西"></a>设置网站上的杂七杂八的东西</h1><p>运营一个个人博客，光有文章可不行，网页的美观也是很重要的。这篇文章主要记录一些杂七杂八的设置，帮助你美化自己的博客网站。</p>
+<h2 id="背景的设置"><a href="#背景的设置" class="headerlink" title="背景的设置"></a>背景的设置</h2><p>随便找张你喜欢的背景图，重命名为background.jpg 方便找，然后丢到themes -&gt; next -&gt; source -&gt; images <strong>上面不一定是next，是你用的主题</strong></p>
+<p>themes -&gt; next -&gt; source -&gt; css -&gt; _custom ，找到路径下的custom.styl文件，<strong>没有就自己建一个</strong>，在文件的最上方加上一代码 <code>body &#123; background:url(/images/background.jpg（这是你之前加的背景图片的名字）);&#125;</code> 就完事了。</p>
+<h2 id="头像的设置"><a href="#头像的设置" class="headerlink" title="头像的设置"></a>头像的设置</h2><p>找到你要做头像的文件，重命名为avatar.jpg或者avatar.gif <strong>使用头像旋转需要用.gif，但是我觉得转一圈挺蠢的</strong>，</p>
+<p>打开你的主题配置文件找到avatar，配置按下图;</p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/image-20200915203820171.png" alt="image-20200915203820171"></p>
+<p>然后就搞定了。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>嘛，虽然我觉得挺废话的，但是还是要提醒，<strong>任何更改后请将其部署到服务器</strong>。嗯，然后没啥了，都挺简单的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_1.jpg">
+      <meta itemprop="name" content="WW1346">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WW1346的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/" class="post-title-link" itemprop="url">分布式同步利器BitTorrentSync</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-12 01:03:36 / 修改时间：02:26:59" itemprop="dateCreated datePublished" datetime="2020-08-12T01:03:36+08:00">2020-08-12</time>
+            </span>
+
+          
+            <span id="/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/" class="post-meta-item leancloud_visitors" data-flag-title="分布式同步利器BitTorrentSync" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/12/%E5%88%86%E5%B8%83%E5%BC%8F%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8BitTorrentSync/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="BT-Sync，不只是同步工具"><a href="#BT-Sync，不只是同步工具" class="headerlink" title="BT Sync，不只是同步工具"></a>BT Sync，不只是同步工具</h1><p>预先告知，该工具正常使用途径已被<strong>you know what</strong>封杀，但是仍旧可以使用，该教程旨在教授一些该工具的初步使用方法，请勿用于传播非法内容！若因个人使用导致的任何责任，本人概不承担。</p>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>相信玩网老司机一定都听说过<strong>BT下载</strong>吧。BT是一种互联网的P2P传输协议，全名”BitTorrent”。BT Sync 与BT下载一样，同为BItTorrent公司的产品。故BT Sync 也是通过P2P传输的。</p>
+<p>BT Sync 主要是作为同步工具来使用的，它能够让你快速的在几个不同的设备直接同步文件。具有增量同步的功能。</p>
+<p>由于是P2P的传输方式，我们无需服务器，无需公网ip即可进行同步，只要我们在中心服务器找到节点接入网络，就可以一直享受庞大的资源树。</p>
+<p>插播一句个人观点：<strong>BT这种方式真的是互联网精神的典范：人人为我，我为人人。可惜的是随着互联网公司的发展，这一点已经给大型商业公司碾进了互联网的角落了。</strong></p>
+<p>那么它何以做网盘呢？答案也是P2P。</p>
+<p>每个人都是服务器，这就是BT的精神。利用BT Sync，享有私钥的用户可以从节点网络中正在运行的用户那里读取数据，这让其脱离了传统网盘的几个桎梏：</p>
+<ol>
+<li>存储空间限制</li>
+<li>下载流量限制    <strong>这也是百度网盘广为诟病的一点</strong></li>
+<li>网络审查及版权问题</li>
+<li>服务费用</li>
+</ol>
+<h2 id="BT-Sync的下载及安装"><a href="#BT-Sync的下载及安装" class="headerlink" title="BT Sync的下载及安装"></a>BT Sync的下载及安装</h2><p>当然，<a target="_blank" rel="noopener" href="https://www.resilio.com/">官网下载</a>肯定是最优选，但是毕竟BIttorrent是家商业公司，新的BT Sync<strong>现在叫Resilio Sync</strong>的部分功能是收费滴！所以既然要发扬互联网精神，<strong>白嫖</strong>肯定是少不了的对吧！这里我放一个链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1xik7Own99Av1xEqOyBeMPg">提取码4g0n解压码btsync</a></p>
+<p>这是老版本的BT Sync，一样能使，而且有对咱们国内用户<strong>至关重要的一项功能</strong>，具体是啥，容我卖个关子。</p>
+<p>安装嘛，没啥好讲的，运行安装程序就完事了。</p>
+<h2 id="BT-Sync的使用"><a href="#BT-Sync的使用" class="headerlink" title="BT Sync的使用"></a>BT Sync的使用</h2><p>这里就是重点中的重点了！使用这个小玩意只需要简单的三步</p>
+<h3 id="找一个文件夹"><a href="#找一个文件夹" class="headerlink" title="找一个文件夹"></a>找一个文件夹</h3><p>这没啥好讲的，开个属于它的文件夹就行，路径最好别带中文。</p>
+<h3 id="接受同步密钥"><a href="#接受同步密钥" class="headerlink" title="接受同步密钥"></a>接受同步密钥</h3><p>BT Sync最重要的就是同步密钥。分为<strong>读写密钥</strong>和<strong>只读密钥</strong>。顾名思义，读写密钥的持有者拥有读写的权限，能够更新目录中的内容，拥有只读密钥的人无法对同步目录修改，只能读取。<strong>你是可以改里面的东西的，但是这个改动不会传给别的用户</strong>。</p>
+<p>1.4版本里右侧有一个设置按钮</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015334725.png" alt="image-20200812015334725"></p>
+<p>点击输入密钥</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015353063.png" alt="image-20200812015353063"></p>
+<p>把你的接受密钥丢进去，选择你的文件夹，完成。</p>
+<h3 id="发起同步"><a href="#发起同步" class="headerlink" title="发起同步"></a>发起同步</h3><p>要发起同步，你需要一个用来同步的文件夹<strong>废话</strong>，你对该文件夹的改动会同步给拥有密钥的人。</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015637675.png" alt="image-20200812015637675"></p>
+<p>点击这个，选择你的文件夹</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015712081.png" alt="image-20200812015712081"></p>
+<p>这是一些设置，不多介绍</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812015738460.png" alt="image-20200812015738460"></p>
+<p>在这个三个小点这里点击，可以修改偏好和断开连接<strong>不会删除文件夹，只会断开与网络的连接</strong></p>
+<p>以上就是基本的使用教学。</p>
+<h2 id="如何科学使用"><a href="#如何科学使用" class="headerlink" title="如何科学使用"></a>如何科学使用</h2><p>以上说了那么多，你可能也开始了使用。然而，由于<strong>you know what</strong>的封杀，我们无法正常的访问节点网络，也就是说，刚刚搞了半天，最后我们却无法正常使用！这时候，我们就要收回之前卖的那个关子了，祭出我们的杀器——DHT网络。</p>
+<h3 id="BT-Sync的节点发现"><a href="#BT-Sync的节点发现" class="headerlink" title="BT Sync的节点发现"></a>BT Sync的节点发现</h3><p>对于任何一个P2P工具，节点发现都是开始运作的第一步。BT Sync实现节点发现，主要有两个途径。</p>
+<h3 id="Tracker-server"><a href="#Tracker-server" class="headerlink" title="Tracker server"></a>Tracker server</h3><p>追踪服务器（Tracker server）就是节点之间的中介，通过连接该服务，节点之间可以互相发现，获取信息。而正是因为这个服务被封了，导致我们的BT Sync无法正常使用。</p>
+<h3 id="DHT网络"><a href="#DHT网络" class="headerlink" title="DHT网络"></a>DHT网络</h3><p>分布式是个啥玩意？三言两语肯定讲不清。所以DHT想讲清楚，肯定不是我这个普及用法的博客的工作。我们大概可以这样描述：有一张网络，上面的每个节点都有这张网络的蓝图，你想要加入这张网络，只需要找到一个在网络中的节点，告诉他你要进来了，这样就能顺藤摸瓜找到整张网络，并加入他们。这个找到第一个节点的过程叫：<strong>bootstrap</strong>。这一步就是利用DHT网络的关键。</p>
+<h3 id="如何在国内进行节点发现"><a href="#如何在国内进行节点发现" class="headerlink" title="如何在国内进行节点发现"></a>如何在国内进行节点发现</h3><p>由于我们无法访问Tracker server，而且又不可能有好心人告诉你他也在网络里，并且告诉你怎么连进来。所以<strong>科学上网</strong>还是免不了的。我们先挂上代理，等待第一次的同步。当客户端界面出现了若干节点数，且已经开始同步，设置DHT网络：</p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812021345152.png" alt="image-20200812021345152"></p>
+<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812021400827.png" alt="image-20200812021400827"></p>
+<p><strong>如果有局域网同步需求，需勾选搜索LAN</strong></p>
+<p>至此，你应该已经连接进了DHT网络，如果想要测试是否能够免翻使用，请去除勾选中继服务器及跟踪程序服务器。<strong>关闭科学上网</strong>，重启BT Sync看看节点列表是否还有节点，能否正常同步。若能够正常使用，今后就能免翻一直使用啦！</p>
+<h3 id="关于DHT的注意事项"><a href="#关于DHT的注意事项" class="headerlink" title="关于DHT的注意事项"></a>关于DHT的注意事项</h3><p>保证经常运行BT Sync，这样才能更上DHT的同步。如果较长时间未使用导致同步失败，就再次按照上面的方法发现节点就行了。</p>
+<h2 id="最后想说的几句话"><a href="#最后想说的几句话" class="headerlink" title="最后想说的几句话"></a>最后想说的几句话</h2><p>BT Sync是一个非常好用的工具，因此本人才会专门写一个博客进行一些初步的指导，但本人绝不赞成用其分享敏感内容、侵犯版权的内容等。如有人通过阅读本人的博客学会使用BT Sync并用其分享不适宜的内容，造成的法律后果本人概不负责。工具无罪，希望大家善用。</p>
+<p>提供一个BTSync中文发布站：<a target="_blank" rel="noopener" href="http://btsync.org/">BTSync中文发布站</a> 请勿滥用</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/12/%E5%8D%9A%E5%AE%A2%E6%9A%96%E6%9A%96%E4%BB%8E%E6%8D%A2%E4%B8%BB%E9%A2%98%E5%BC%80%E5%A7%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -176,10 +501,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-12 01:02:43 / 修改时间：13:21:16" itemprop="dateCreated datePublished" datetime="2020-08-12T01:02:43+08:00">2020-08-12</time>
+              <time title="创建时间：2020-08-12 01:02:43" itemprop="dateCreated datePublished" datetime="2020-08-12T01:02:43+08:00">2020-08-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 20:58:20" itemprop="dateModified" datetime="2020-09-15T20:58:20+08:00">2020-09-15</time>
+              </span>
 
           
             <span id="/2020/08/12/%E5%8D%9A%E5%AE%A2%E6%9A%96%E6%9A%96%E4%BB%8E%E6%8D%A2%E4%B8%BB%E9%A2%98%E5%BC%80%E5%A7%8B/" class="post-meta-item leancloud_visitors" data-flag-title="博客暖暖从换主题开始" title="阅读次数">
@@ -215,7 +546,7 @@
       
           <h1 id="定制个人博客的第一步——换主题"><a href="#定制个人博客的第一步——换主题" class="headerlink" title="定制个人博客的第一步——换主题"></a>定制个人博客的第一步——换主题</h1><p>看腻了自带的主题？想要更深层的定制自己的博客？Hexo提供了相当便捷的切换主题的方式，只需按照如下步骤操作即可：</p>
 <h2 id="下载及使用主题"><a href="#下载及使用主题" class="headerlink" title="下载及使用主题"></a>下载及使用主题</h2><p>Hexo的官网提供了主题的预览：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes</a>，你可以在此寻找自己喜欢的主题。</p>
-<p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812124130058.png" alt="image-20200812124130058"></p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/20200915205740.png" alt="image-20200915204905147"></p>
 <p>本人使用的是NexT这个主题，以此为例：</p>
 <p>点击NexT页面，进入主题的代码仓库：</p>
 <p><img src="http://qewgsk91i.hn-bkt.clouddn.com/image-20200812124232825.png" alt="image-20200812124232825"></p>
@@ -364,10 +695,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-12 00:55:20 / 修改时间：14:21:18" itemprop="dateCreated datePublished" datetime="2020-08-12T00:55:20+08:00">2020-08-12</time>
+              <time title="创建时间：2020-08-12 00:55:20" itemprop="dateCreated datePublished" datetime="2020-08-12T00:55:20+08:00">2020-08-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 20:29:04" itemprop="dateModified" datetime="2020-09-15T20:29:04+08:00">2020-09-15</time>
+              </span>
 
           
             <span id="/2020/08/12/%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-meta-item leancloud_visitors" data-flag-title="美化你的个人博客" title="阅读次数">
@@ -401,7 +738,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="博客暖暖之路"><a href="#博客暖暖之路" class="headerlink" title="博客暖暖之路"></a>博客暖暖之路</h1><p>在这个时代，还在坚守个人博客阵地的，往往都是些愿意折腾的人。毕竟大型博客网站都有成熟的架构，只管开写就行，何苦又自己折腾架构美化博客呢？但是架不住定制博客爽啊！个性化的定制博客是<del>艰难困苦</del>困难艰苦的。所以本人大概记录了一些自己折腾的过程及心得，帮助大家也是帮助自己少走弯路。</p>
+          <h1 id="博客暖暖之路"><a href="#博客暖暖之路" class="headerlink" title="博客暖暖之路"></a>博客暖暖之路</h1><p>在这个时代，还在坚守个人博客阵地的，往往都是些愿意折腾的人。毕竟大型博客网站都有成熟的架构，只管开写就行，何苦又自己折腾架构美化博客呢？但是架不住定制博客爽啊！个性化的定制博客是困难艰苦的。所以本人大概记录了一些自己折腾的过程及心得，帮助大家也是帮助自己少走弯路。</p>
 <h3 id="下面是具体的博文"><a href="#下面是具体的博文" class="headerlink" title="下面是具体的博文"></a>下面是具体的博文</h3><p><a target="_blank" rel="noopener" href="https://ww1346never996.github.io/2020/08/12/%E5%8D%9A%E5%AE%A2%E6%9A%96%E6%9A%96%E4%BB%8E%E6%8D%A2%E4%B8%BB%E9%A2%98%E5%BC%80%E5%A7%8B/">博客暖暖从换主题开始！</a></p>
 <p><a target="_blank" rel="noopener" href="https://ww1346never996.github.io/2020/08/12/%E8%83%8C%E6%99%AF%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE/">背景、头像、侧边栏等的设置</a></p>
 <p><a target="_blank" rel="noopener" href="https://ww1346never996.github.io/2020/08/12/%E9%9F%B3%E4%B9%90Party%E4%B9%8B%E6%8F%92%E4%BB%B6APlayer/">音乐Party之插件A Player</a></p>
@@ -448,10 +785,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-11 15:52:43 / 修改时间：17:02:57" itemprop="dateCreated datePublished" datetime="2020-08-11T15:52:43+08:00">2020-08-11</time>
+              <time title="创建时间：2020-08-11 15:52:43" itemprop="dateCreated datePublished" datetime="2020-08-11T15:52:43+08:00">2020-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-21 16:37:34" itemprop="dateModified" datetime="2020-09-21T16:37:34+08:00">2020-09-21</time>
+              </span>
 
           
             <span id="/2020/08/11/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%AE%89%E5%8D%93%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="从零开始的安卓学习记录" title="阅读次数">
@@ -485,7 +828,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="小学期安卓的一点学习记录"><a href="#小学期安卓的一点学习记录" class="headerlink" title="小学期安卓的一点学习记录"></a>小学期安卓的一点学习记录</h1><p>哈哈，北邮的小学期，简直就是<strong>码农速成班</strong>。两周从<strong>零</strong>写一个app，可太折磨人了。不过还好我顶住了，算是比较顺利的完成了要求。（虽然界面做的丑的一比，高级控件没几个，然后验收还出了bug）</p>
+
       
     </div>
 
@@ -624,7 +968,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-12 00:49:48" itemprop="dateModified" datetime="2020-08-12T00:49:48+08:00">2020-08-12</time>
+                <time title="修改时间：2020-09-15 21:02:15" itemprop="dateModified" datetime="2020-09-15T21:02:15+08:00">2020-09-15</time>
               </span>
 
           
@@ -694,12 +1038,12 @@
 <p>之后会有停顿询问你设定密码啊什么的，不用管，直接敲回车直到结束。</p>
 <p>在生成的位置<strong>会有显示</strong> </p>
 <p>找到你的id_rsa.pub密钥，全部复制下来。</p>
-<p><img src="https://pic2.zhimg.com/80/v2-d1e47103ec1aa8675f68688c5d63bd27_720w.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/20200915210016.jpeg" alt="img"></p>
 <p>打开<a target="_blank" rel="noopener" href="https://github.com/settings/keys">Github_Setting_keys</a>页面，新建new SSH Key    </p>
 <p> <strong>title随便取，不重要</strong></p>
-<p><img src="https://pic1.zhimg.com/80/v2-72a3f22c080e99343c3cc4aabce10e3c_720w.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/20200915210026.jpeg" alt="img"></p>
 <p>搞定后点Add SSH key，回到Git Bash检查一下，输入<code>ssh git@github.com</code>命令</p>
-<p><img src="https://pic4.zhimg.com/80/v2-da481ffa686410becd4186c656b4ebd6_720w.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/20200915210037.jpeg" alt="img"></p>
 <p>这就行了。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
 <p>ok，如上就是安装Git及绑定Github的全部流程，应该不会出啥问题，如果Github访问过慢或者无法访问，请<strong>科学上网</strong>！</p>
 <h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Hexo基于Node.js，Node.js 下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Download | Node.js</a> 下载安装包，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入：</p>
@@ -711,7 +1055,7 @@
 <p>这就行了。**<em>再次重申，版本号不一定一样，有就行！**</em></p>
 <p>上面这步，基本上不可能出问题。但是接下来的就emmmmmm</p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，<strong>进入目标文件夹中</strong>，按住shift键，右击鼠标点击命令行：</p>
-<p><img src="https://picb.zhimg.com/80/v2-a5450a466c0927c25dff8ad6f1d2046c_720w.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/20200915210111.jpeg" alt="img"></p>
 <p>也有可能是中文的，叫在此打开 Powershell 窗口</p>
 <p>使用npm命令安装Hexo，输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
@@ -755,7 +1099,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 
 <p>如下图：</p>
-<p><img src="https://picb.zhimg.com/80/v2-279ac5149b577f04dc099defbb12eaa8_720w.jpg" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/ww1346never996/ww1346PicForBlog/master/20200915210130.jpeg" alt="img"></p>
 <p>保存。然后进入目录下进入Powershell 输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
@@ -947,7 +1291,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
